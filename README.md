@@ -1,19 +1,11 @@
 # dwmblocks
 
-Modular status bar for dwm written in c.
+Modular status bar for dwm written in c. Inspired by Luke Smith's build of dwmblocks.
 
 # Modifying blocks
 
-The statusbar is made from text output from commandline programs.  Blocks are
+The statusbar is made from text output from commandline programs. Blocks are
 added and removed by editing the config.h file.
-
-# Luke's build
-
-I have dwmblocks read my preexisting scripts
-[here in my dotfiles repo](https://github.com/LukeSmithxyz/voidrice/tree/master/.local/bin/statusbar).
-So if you want my build out of the box, download those and put them in your
-`$PATH`. I do this to avoid redundancy in LARBS, both i3 and dwm use the same
-statusbar scripts.
 
 # Signaling changes
 
@@ -22,14 +14,11 @@ This is an option here, but a superior choice is giving your module a signal
 that you can signal to it to update on a relevant event, rather than having it
 rerun idly.
 
-For example, the audio module has the update signal 10 by default.  Thus,
+For example, the audio module has the update signal 10 by default. Thus,
 running `pkill -RTMIN+10 dwmblocks` will update it.
 
 You can also run `kill -44 $(pidof dwmblocks)` which will have the same effect,
-but is faster.  Just add 34 to your typical signal number.
-
-My volume module *never* updates on its own, instead I have this command run
-along side my volume shortcuts in dwm to only update it when relevant.
+but is faster. Just add 34 to your typical signal number.
 
 Note that if you signal an unexpected signal to dwmblocks, it will probably
 crash. So if you disable a module, remember to also disable any cronjobs or
